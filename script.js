@@ -17,7 +17,7 @@ myElementCreator('ul', 'letter-wrap','content-wrap')
 
 mainTitle.addEventListener('click',()=>{
     let audio = myElementCreator('audio','letterA')
-    audio.src='/audioLetter/A.mp3'
+    audio.src='./audioLetter/A.mp3'
     audio.play()
 })
 
