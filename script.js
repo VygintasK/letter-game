@@ -1,5 +1,8 @@
 import myElementCreator from './tools/myElementCreator.js'
 
+
+
+
 const allLtLettersArr = ['Aa', 'Ąą', 'Bb', 'Cc', 'Čč', 'Dd', 'Ee', 'Ęę', 'Ėė', 'Ff', 'Gg', 'Hh', 'Ii', 'Įį', 'Yy', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Rr', 'Ss', 'Šš', 'Tt', 'Uu', 'Ųų', 'Ūū', 'Vv', 'Zz', 'Žž']
 // const capsLTLettersArr = allLtLettersArr.toString().replace(/[a-ząčęėįšųūž]/g,'').split(',')
 // const capsLatinLTLettersArr = allLtLettersArr.toString().replace(/[^A-Z]/g,'').split('')
@@ -14,7 +17,6 @@ mainTitle.textContent='PASPAUSK'
 
 let soundSVG = myElementCreator('img','soundSVG','headerContentWrap')
 soundSVG.src ='./sound.svg'
-
 
 
 const randomLetter = capsLatinLTLettersArr[Math.floor(Math.random() * capsLatinLTLettersArr.length)];
@@ -35,11 +37,6 @@ myElementCreator('div', 'content-wrap')
 myElementCreator('ul', 'letter-wrap','content-wrap')
 
 
-
-
-
-
-
 capsLatinLTLettersArr.map((letter)=>{
     let oneLetter = myElementCreator('li',[letter,'letter'],'letter-wrap')
     oneLetter.textContent = letter
@@ -57,3 +54,9 @@ capsLatinLTLettersArr.map((letter)=>{
     })
 })
 
+let test = myElementCreator('button','button')
+test.textContent='scan viewport'
+test.addEventListener('click',()=>{
+    console.log(document.defaultView.window.screen.height,'x',document.defaultView.window.screen.width)
+    alert('Ekrano dydis:'+document.defaultView.window.screen.width+'x'+document.defaultView.window.screen.height)
+})
