@@ -1,0 +1,40 @@
+.letter-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto; 
+    padding: 0px;
+ 
+}
+
+.letter-wrap{
+    width: 90%;
+    column-gap: 50px;
+    row-gap: 50px; 
+}
+
+.letter{
+    user-select: none;
+    color: #4fbbec;
+    background-color: #ffed4aee;
+    box-shadow: 1px 10px 1px 7px #e2ba4e;
+    width: 8vw;
+    height: 8vw;
+    font-weight: bold;
+    font-size: 6vw;
+    text-align: center;
+    border-radius: 2vw;
+    list-style-type: none;
+    box-shadow: 1px 10px 1px 7px #e2ba4e;
+}
+
+.letter:hover {
+    font-size: 6vw;
+    text-shadow: 0px 1px 7px rgb(255, 0, 0);
+    
+}
+.letter:active{
+    box-shadow: 0 0px #666;
+    transform: translateY(10px);
+}

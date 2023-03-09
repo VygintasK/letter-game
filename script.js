@@ -1,34 +1,44 @@
 import myElementCreator from './tools/myElementCreator.js'
 
 const allLtLettersArr = ['Aa', 'Ąą', 'Bb', 'Cc', 'Čč', 'Dd', 'Ee', 'Ęę', 'Ėė', 'Ff', 'Gg', 'Hh', 'Ii', 'Įį', 'Yy', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Rr', 'Ss', 'Šš', 'Tt', 'Uu', 'Ųų', 'Ūū', 'Vv', 'Zz', 'Žž']
-const capsLTLettersArr = allLtLettersArr.toString().replace(/[a-ząčęėįšųūž]/g,'').split(',')
-const capsLatinLTLettersArr = allLtLettersArr.toString().replace(/[^A-Z]/g,'').split('')
+// const capsLTLettersArr = allLtLettersArr.toString().replace(/[a-ząčęėįšųūž]/g,'').split(',')
+// const capsLatinLTLettersArr = allLtLettersArr.toString().replace(/[^A-Z]/g,'').split('')
+const capsLatinLTLettersArr =['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'Y', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'Z']
 
+let header = myElementCreator('header','header')
 
-myElementCreator('div', 'content-wrap')
+let headerContentWrap = myElementCreator('div','headerContentWrap','header')
 
-let mainTitle = myElementCreator('h1', 'main-title','content-wrap')
-mainTitle.textContent='KAJOS RAIDĖS'
+let mainTitle = myElementCreator('h2', 'main-title','headerContentWrap')
+mainTitle.textContent='PASPAUSK'
 
-myElementCreator('ul', 'letter-wrap','content-wrap')
-
-
-
-
-mainTitle.addEventListener('click',()=>{
-    let audio = myElementCreator('audio','letterA')
-    audio.src='./audioLetter/A.mp3'
-    audio.play()
-})
-
-
-
-
+let soundSVG = myElementCreator('img','soundSVG','headerContentWrap')
+soundSVG.src ='./sound.svg'
 
 
 
 const randomLetter = capsLatinLTLettersArr[Math.floor(Math.random() * capsLatinLTLettersArr.length)];
 console.log('cia:',randomLetter)
+
+
+
+let audioStorage = myElementCreator('div', 'audioStorage')
+
+headerContentWrap.addEventListener('click',()=>{
+    audioStorage.innerHTML =``
+    let audio = myElementCreator('audio','letterA','audioStorage')
+    audio.src=`./audioLetter/${randomLetter}.mp3`
+    audio.play()
+})
+
+myElementCreator('div', 'content-wrap')
+myElementCreator('ul', 'letter-wrap','content-wrap')
+
+
+
+
+
+
 
 capsLatinLTLettersArr.map((letter)=>{
     let oneLetter = myElementCreator('li',[letter,'letter'],'letter-wrap')
