@@ -31,6 +31,7 @@ body{
 }
 
 .letter{
+    user-select: none;
     color: rgb(250, 246, 17);
     background-color: rgba(98, 202, 13, 0.938);
     margin: 10px;
@@ -45,7 +46,6 @@ body{
 }
 
 .letter:hover{
-    background-color: rgba(83, 146, 31, 0.938);
     padding: 0.5vw 3vw;
     font-size: 6vw;
 }
@@ -53,6 +53,15 @@ body{
     box-shadow: 0 0px #666;
     transform: translateY(10px);
 }
+
+.hit{
+    background-color: rgb(102, 255, 0);
+}
+
+.miss{
+    background-color: red;
+}
+
 
 @media only screen and (max-width: 1440px){
 
