@@ -90,6 +90,18 @@ body {
   transform: translateY(10px);
 }
 
+.screenBlock {
+  background-color: rgba(179, 255, 0, 0.63);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hit {
   background-color: rgb(102, 255, 0);
 }
