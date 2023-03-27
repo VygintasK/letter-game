@@ -1,0 +1,37 @@
+@import './variables.scss';
+
+.letter-wrap{
+    max-width: 1500px;
+    display: flex;
+    row-gap: 40px;
+    column-gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto; 
+    padding: 0px;
+}
+.letter-wrap .letter{
+    list-style-type: none;
+    user-select: none;
+    color: $primaryColor;
+    background-color: $secondaryColor;
+    box-shadow: $boxShadow;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    font-size: 130px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.letter-wrap .letter:active{
+    box-shadow: $boxShadowPress;
+    transform: translateY(10px);
+}
+@media only screen and (max-width: 1500px){
+    .letter-wrap .letter{
+        font-size: 110px;
+    }
+}

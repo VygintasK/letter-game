@@ -1,0 +1,17 @@
+@import './variables.scss';
+.letter-wrap .hit{
+    background-color: $hit;
+}
+.letter-wrap .miss{
+    background-color: $miss;
+}
+.screenBlock{
+    position: fixed;
+    top: 0;
+    background-color: #4fbaeca4;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
