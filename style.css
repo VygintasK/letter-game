@@ -83,12 +83,12 @@ body {
 }
 @media only screen and (max-width: 425px) {
   .headerContentWrap {
-    font-size: 40px;
+    font-size: 35px;
     padding: 0px 20px;
   }
 }
 .letter-wrap {
-  max-width: 1500px;
+  max-width: 1600px;
   display: flex;
   row-gap: 40px;
   -moz-column-gap: 40px;
@@ -152,9 +152,9 @@ body {
 }
 @media only screen and (max-width: 425px) {
   .letter-wrap .letter {
-    width: 70px;
-    height: 65px;
-    font-size: 60px;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
   }
 }
 .letter-wrap .hit {
