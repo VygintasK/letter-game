@@ -39,3 +39,14 @@
         margin-top: 27px;
     }
 }
+@media only screen and (max-width: 1200px){
+    .headerContentWrap{
+        font-size: 80px;
+        margin-bottom: 27px;
+        margin-top: 27px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        // flex-direction: column;
+        // align-items: center;
+    }
+}
