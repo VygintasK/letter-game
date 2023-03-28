@@ -81,6 +81,12 @@ body {
     align-self: center;
   }
 }
+@media only screen and (max-width: 425px) {
+  .headerContentWrap {
+    font-size: 40px;
+    padding: 0px 20px;
+  }
+}
 .letter-wrap {
   max-width: 1500px;
   display: flex;
@@ -144,6 +150,13 @@ body {
     border-radius: 10px;
   }
 }
+@media only screen and (max-width: 425px) {
+  .letter-wrap .letter {
+    width: 70px;
+    height: 65px;
+    font-size: 60px;
+  }
+}
 .letter-wrap .hit {
   background-color: #00ff40;
 }
@@ -163,6 +176,16 @@ body {
   align-items: center;
 }
 
+@media only screen and (max-width: 850px) {
+  .screenBlockImg {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .screenBlockImg {
+    width: 70%;
+  }
+}
 /* // @media only screen and (max-width: 1440px){
 
 //     .letter{

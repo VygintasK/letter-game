@@ -15,3 +15,14 @@
     justify-content: center;
     align-items: center;
 }
+@media only screen and (max-width: 850px){
+    .screenBlockImg{
+        width: 50%;
+
+    }
+}
+@media only screen and (max-width: 425px){
+    .screenBlockImg{
+        width: 70%;
+    }
+}
