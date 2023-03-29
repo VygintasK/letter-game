@@ -1,6 +1,9 @@
 import myElementCreator from './tools/myElementCreator.js'
 
 import innerScreenScan from './js/innerScreenScan.js'
+import makeRandomLetter from './js/makeRandomLetter.js'
+import playAudioOnClick from './js/playAudioOnClick.js'
+import winOrLooseOnClick from './js/winOrLooseOnClick.js'
 
 const allLtLettersArr = ['Aa', 'Ąą', 'Bb', 'Cc', 'Čč', 'Dd', 'Ee', 'Ęę', 'Ėė', 'Ff', 'Gg', 'Hh', 'Ii', 'Įį', 'Yy', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Rr', 'Ss', 'Šš', 'Tt', 'Uu', 'Ųų', 'Ūū', 'Vv', 'Zz', 'Žž']
 // const capsLTLettersArr = allLtLettersArr.toString().replace(/[a-ząčęėįšųūž]/g,'').split(',')
@@ -10,7 +13,6 @@ const capsLatinLTLettersArr = allLtLettersArr.toString().replace(/[^A-Z]/g,'').s
 // HEADER
 let header = myElementCreator('header','header')
 let headerContentWrap = myElementCreator('div','headerContentWrap','header')
-
 let winScore=0
 let looseScore=0
 let ScoreElm = myElementCreator('div','score','headerContentWrap')
@@ -22,8 +24,6 @@ separatorElm.textContent = '-'
 looseElm.textContent = looseScore
 winElm.style.color='#66ff00'
 looseElm.style.color='red'
-
-
 let mainTitle = myElementCreator('h2', 'main-title','headerContentWrap')
 let soundSVG = myElementCreator('img','soundSVG','headerContentWrap')
 mainTitle.textContent='PASPAUSK'
@@ -31,70 +31,46 @@ soundSVG.src ='./img/sound.svg'
 
 
 
+function renderLetters(){
+
+    const randomLetter = makeRandomLetter(capsLatinLTLettersArr)
+
+    playAudioOnClick(randomLetter,headerContentWrap)
 
 
-
-function renderLetters(lettersArr,randomLetter){
+    // LETTERS
     let contentWrap = myElementCreator('div', 'content-wrap')
     myElementCreator('ul', 'letter-wrap','content-wrap')
-    lettersArr.map((letter)=>{
-        let oneLetterElm = myElementCreator('li',[letter,'letter'],'letter-wrap')
-        oneLetterElm.textContent = letter
-
-        function letterValidation(oneLetterElm,randomLetter,letter){
-            oneLetterElm.addEventListener('click',()=>{
-                if (randomLetter === letter){
-                    oneLetterElm.classList.add('hit')
-                    winScore++
-                    winElm.textContent = winScore
-                    console.log(winScore,looseScore)
-                    let screenBlock = myElementCreator('div','screenBlock')
-                    let screenBlockImg = myElementCreator('img','screenBlockImg','screenBlock')
-                    screenBlockImg.src = './img/ryder.png'
-                    setTimeout(function() {
-                        contentWrap.remove()
-                        audioStorage.remove()
-                        screenBlock.remove()
-                        renderLetters()
-                    }, 2000);
-                } else {
-                    oneLetterElm.classList.add('miss')
-                    looseScore++
-                    looseElm.textContent = looseScore
-                    console.log(winScore,looseScore)
-                }
-            })
-        }
-        letterValidation()
-
-
-
-    })
-
     
+    capsLatinLTLettersArr.map((oneLetter)=>{
+        let oneLetterElm = myElementCreator('li',[oneLetter,'letter'],'letter-wrap')
+        oneLetterElm.textContent = oneLetter
+
+       
+        oneLetterElm.addEventListener('click',()=>{
+            if (randomLetter === oneLetter){
+                oneLetterElm.classList.add('hit')
+                winScore++
+                winElm.textContent = winScore
+                let screenBlock = myElementCreator('div','screenBlock')
+                let screenBlockImg = myElementCreator('img','screenBlockImg','screenBlock')
+                screenBlockImg.src = './img/ryder.png'
+                setTimeout(function() {
+                    contentWrap.remove()
+                    screenBlock.remove()
+                    renderLetters()
+                }, 2000);
+            } else {
+                oneLetterElm.classList.add('miss')
+                looseScore++
+                looseElm.textContent = looseScore
+            }
+        })
+        
+    })
 }
 renderLetters()
 
 
-
-// MATH
-const randomLetter = capsLatinLTLettersArr[Math.floor(Math.random() * capsLatinLTLettersArr.length)];
-console.log('cia:',randomLetter)
-
-
-
-
-
-// AUDIO
-let audioStorage = myElementCreator('div', 'audioStorage')
-headerContentWrap.addEventListener('click',()=>{
-    audioStorage.innerHTML =``
-    let audio = myElementCreator('audio',['letter', `${randomLetter}`],'audioStorage')
-    audio.src=`./audioLetter/${randomLetter}.mp3`
-    audio.play()
-})
-
-
-renderLetters(capsLatinLTLettersArr)
+//  SCREEN
 innerScreenScan()
-
