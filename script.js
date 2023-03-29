@@ -1,5 +1,7 @@
 import myElementCreator from './tools/myElementCreator.js'
 
+import innerScreenScan from './js/innerScreenScan.js'
+
 const allLtLettersArr = ['Aa', 'Ąą', 'Bb', 'Cc', 'Čč', 'Dd', 'Ee', 'Ęę', 'Ėė', 'Ff', 'Gg', 'Hh', 'Ii', 'Įį', 'Yy', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Rr', 'Ss', 'Šš', 'Tt', 'Uu', 'Ųų', 'Ūū', 'Vv', 'Zz', 'Žž']
 // const capsLTLettersArr = allLtLettersArr.toString().replace(/[a-ząčęėįšųūž]/g,'').split(',')
 const capsLatinLTLettersArr = allLtLettersArr.toString().replace(/[^A-Z]/g,'').split('')
@@ -29,59 +31,70 @@ soundSVG.src ='./img/sound.svg'
 
 
 
-function renderLetters(){
-    // MATH
-    const randomLetter = capsLatinLTLettersArr[Math.floor(Math.random() * capsLatinLTLettersArr.length)];
-    console.log('cia:',randomLetter)
-    // AUDIO
-    let audioStorage = myElementCreator('div', 'audioStorage')
-    headerContentWrap.addEventListener('click',()=>{
-        audioStorage.innerHTML =``
-        let audio = myElementCreator('audio',['letter', `${randomLetter}`],'audioStorage')
-        audio.src=`./audioLetter/${randomLetter}.mp3`
-        audio.play()
-    })
 
-    // LETTERS
+
+
+function renderLetters(lettersArr,randomLetter){
     let contentWrap = myElementCreator('div', 'content-wrap')
     myElementCreator('ul', 'letter-wrap','content-wrap')
-    capsLatinLTLettersArr.map((letter)=>{
-        let oneLetter = myElementCreator('li',[letter,'letter'],'letter-wrap')
-        oneLetter.textContent = letter
+    lettersArr.map((letter)=>{
+        let oneLetterElm = myElementCreator('li',[letter,'letter'],'letter-wrap')
+        oneLetterElm.textContent = letter
 
-        oneLetter.addEventListener('click',()=>{
-            if (randomLetter === letter){
-                oneLetter.classList.add('hit')
-                winScore++
-                winElm.textContent = winScore
-                console.log(winScore,looseScore)
-                let screenBlock = myElementCreator('div','screenBlock')
-                let screenBlockImg = myElementCreator('img','screenBlockImg','screenBlock')
-                screenBlockImg.src = './img/ryder.png'
-                setTimeout(function() {
-                    console.log('delete in 1000')
-                    contentWrap.remove()
-                    audioStorage.remove()
-                    screenBlock.remove()
-                    renderLetters()
-                }, 4000);
-            } else {
-                oneLetter.classList.add('miss')
-                looseScore++
-                looseElm.textContent = looseScore
-                console.log(winScore,looseScore)
-            }
-        })
+        function letterValidation(oneLetterElm,randomLetter,letter){
+            oneLetterElm.addEventListener('click',()=>{
+                if (randomLetter === letter){
+                    oneLetterElm.classList.add('hit')
+                    winScore++
+                    winElm.textContent = winScore
+                    console.log(winScore,looseScore)
+                    let screenBlock = myElementCreator('div','screenBlock')
+                    let screenBlockImg = myElementCreator('img','screenBlockImg','screenBlock')
+                    screenBlockImg.src = './img/ryder.png'
+                    setTimeout(function() {
+                        contentWrap.remove()
+                        audioStorage.remove()
+                        screenBlock.remove()
+                        renderLetters()
+                    }, 2000);
+                } else {
+                    oneLetterElm.classList.add('miss')
+                    looseScore++
+                    looseElm.textContent = looseScore
+                    console.log(winScore,looseScore)
+                }
+            })
+        }
+        letterValidation()
+
+
+
     })
+
+    
 }
 renderLetters()
 
 
-//  SCREEN
-let test = myElementCreator('button','button')
-test.textContent='scan viewport'
-test.addEventListener('click',()=>{
-    let {innerWidth,innerHeight} = document.defaultView.window
-    console.log(innerWidth,'x',innerHeight)
-    alert('Ekrano dydis:'+innerWidth+'x'+innerHeight)
+
+// MATH
+const randomLetter = capsLatinLTLettersArr[Math.floor(Math.random() * capsLatinLTLettersArr.length)];
+console.log('cia:',randomLetter)
+
+
+
+
+
+// AUDIO
+let audioStorage = myElementCreator('div', 'audioStorage')
+headerContentWrap.addEventListener('click',()=>{
+    audioStorage.innerHTML =``
+    let audio = myElementCreator('audio',['letter', `${randomLetter}`],'audioStorage')
+    audio.src=`./audioLetter/${randomLetter}.mp3`
+    audio.play()
 })
+
+
+renderLetters(capsLatinLTLettersArr)
+innerScreenScan()
+
