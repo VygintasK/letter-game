@@ -25,7 +25,7 @@ looseElm.style.color='red'
 let mainTitle = myElementCreator('h2', 'main-title','headerContentWrap')
 let soundSVG = myElementCreator('img','soundSVG','headerContentWrap')
 mainTitle.textContent='PASPAUSK'
-soundSVG.src ='./sound.svg'
+soundSVG.src ='./img/sound.svg'
 
 
 
