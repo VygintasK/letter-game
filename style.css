@@ -15,6 +15,9 @@ body {
 .header {
   display: flex;
   justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .headerContentWrap {
@@ -185,71 +188,4 @@ body {
   .screenBlockImg {
     width: 70%;
   }
-}
-/* // @media only screen and (max-width: 1440px){
-
-//     .letter{
-//         width: 9vw;
-//         height: 9vw;
-//         font-size: 8vw;
-//         border-radius: 2vw;
-//     }
-//     .letter-wrap{
-//         column-gap: 4vw;
-//         row-gap: 4vw; 
-//     }
-//     .letter:hover {
-//         font-size: 8.5vw;
-//     }
-// }
-
-// @media only screen and (max-width: 768px){
-
-//     .headerContentWrap {
-//         padding: 2vw 5vw;
-//         box-shadow: 1px 10px 1px 4px #e2ba4e;
-//     }
-//     .headerContentWrap .main-title{
-//         font-size: 100%;
-//         align-self:center;
-//     }
-//     .headerContentWrap .soundSVG{
-//         width: 8vw;
-//     }
-
-//     .letter{
-//         box-shadow: 1px 10px 1px 4px #e2ba4e;
-//         width: 12vw;
-//         height: 12vw;
-//         font-size: 10vw;
-//         border-radius: 3vw;
-//     }
-//     .letter:hover {
-//         font-size: 11vw;
-//     }
-
-//     .letter-wrap{
-//         column-gap: 6vw;
-//         row-gap: 6vw; 
-//     }
-
-
-
-// }
-// @media only screen and (max-width: 425px){
-
-//     .letter{
-//         box-shadow: 1px 10px 1px 2px #e2ba4e;
-//         width: 12vw;
-//         height: 12vw;
-//         font-size: 11vw;
-//         border-radius: 3vw;
-//     }
-
-//     .letter:hover{
-//         font-size: 11.5vw;
-//     }
-//     .headerContentWrap:hover{
-//         font-size: 6vw;
-//     }
-// } *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

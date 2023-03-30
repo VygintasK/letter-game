@@ -2,9 +2,9 @@
 .header{
     display: flex;
     justify-content: center;
+    user-select: none;
 }
 .headerContentWrap {
-    user-select: none;
     font-size: 130px;
     font-weight: bold;
     color: $primaryColor;
@@ -21,6 +21,7 @@
     display: flex;
 }
 .headerContentWrap .main-title{
+
     margin:0px;
     font-size: 100%;
 }
