@@ -8,3 +8,13 @@ This is a little project i started for **my 4 year old**. [Letter game](https://
 - remember how to uses **SCSS**;
 - learn how to use **sound**;
 - learn how to use **MD**;
+- adapt resolution **for specific devices** she uses both vertical and horizontal.
+
+|-|         |-------|   |-------|   |-------|   |-------|
+| |         | |-----|   |--- ---|   | |-----|   | |---| |
+| |         | |            | |      | |         | |   | |
+| |         | |-----|      | |      | |-----|   | |---| |
+| |         | |-----|      | |      | |-----|   | |-----|
+| |         | |            | |      | |         | |  | |
+| |-----|   | |-----|      | |      | |-----|   | |  | |
+|-------|   |-------|      |-|      |-------|   | |  | |
