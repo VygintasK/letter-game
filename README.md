@@ -10,6 +10,13 @@ This is a little project i started for **my 4 year old**. [Letter game](https://
 - learn how to use **MD**;
 - adapt resolution **for specific devices** she uses both vertical and horizontal.
 
+tablet: ?
+|                |ASCII                          |HTML                         |
+|----------------|-------------------------------|-----------------------------|
+|Single backticks|`'text'`                       |'text'                       |
+|Quotes          |`"text"`                       |"text"                       |
+|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+
 |-|         |-------|   |-------|   |-------|   |-------|
 | |         | |-----|   |--- ---|   | |-----|   | |---| |
 | |         | |            | |      | |         | |   | |
